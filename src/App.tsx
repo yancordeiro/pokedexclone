@@ -1,5 +1,5 @@
 import React from "react";
-import Pokedex from "./Pokedex";
+import Pokedex from "./pokedex/Pokedex";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes";
