@@ -1,28 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { PokemonDetail } from "./interfaces/pokemonDetail";
-import MenuIcon from "@mui/icons-material/Menu";
-import { Grid, Container, IconButton, Button, Typography, Toolbar, Box, AppBar, CardActions, CardContent, Card } from "@mui/material";
+import { Container, Typography, Box } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { getPokemonDetails } from "./services/getPokemonDetails";
+import { useQuery } from "react-query";
 
 interface PokemonDetailsProps {}
 
-const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
+export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
   const { name } = useParams();
-
-  const [selectedPokemonDetails, setSelectedPokemonDetails] = useState<PokemonDetail | undefined>(undefined);
-
-  useEffect(() => {
-    if (!name) return;
-    getPokemonDetails(name).then((response) => setSelectedPokemonDetails(response));
-  }, []);
+  const { data } = useQuery(`getPokemonDetails-${name}`, () =>
+    getPokemonDetails(name!)
+  );
+  const selectedPokemonDetails = data;
 
   return (
     <div>
       <Container maxWidth="lg">
         <Box mt={2}>
-          <img width="50%" height="auto" src={selectedPokemonDetails?.sprites.front_default} alt="" />
-          {/* {JSON.stringify(selectedPokemonDetails, undefined, 2)} */}
+          <img
+            width="50%"
+            height="auto"
+            src={selectedPokemonDetails?.sprites.front_default}
+            alt=""
+          />
         </Box>
         <Typography variant="h2">{name}</Typography>
         {selectedPokemonDetails?.types.map((type) => (

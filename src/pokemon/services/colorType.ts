@@ -1,65 +1,63 @@
-import { Type } from "../interfaces/pokemonDetail";
-
 export function getColor(type: any) {
   switch (type) {
     case "bug":
-      return "#befc14";
+      return "#C3CE75";
 
     case "water":
-      return "#01beff";
+      return "#609FB5";
 
     case "grass":
-      return "#09ee4f";
+      return "#48D0B0";
 
     case "fire":
-      return "#ff8e01";
+      return "#FB6C6C";
 
     case "normal":
-      return "#dcdbc4";
+      return "#C2C2A1";
 
     case "poison":
-      return "#c901e6";
+      return "#7C538C";
 
     case "electric":
-      return "#fdf800";
+      return "#FFD86F";
 
     case "ground":
-      return "#e3a010";
+      return "#B1736C";
 
     case "fairy":
-      return "#ff8ad1";
+      return "#F469A9";
 
     case "fighting":
-      return "#d10d1c";
+      return "#D6B591";
 
     case "psychic":
-      return "#ff3ca0";
+      return "#9B7FA6";
 
     case "ghost":
-      return "#7441c2";
+      return "#735797";
 
     case "rock":
-      return "#93623a";
+      return "#A6AAB6";
 
     case "ice":
-      return "#8afff9";
+      return "#7FCCEC";
 
     case "flying":
-      return "#b2dfff";
+      return "#BAB0D5";
 
     case "dark":
-      return "#012765";
+      return "#333";
 
     case "dragon":
-      return "#3813f6";
+      return "#F9BE00";
 
     case "steel":
-      return "#7ca8b8";
+      return "#CCCCDE";
 
     case "unknown":
-      return "#dcdbc4";
+      return "#C2C2A1";
 
     default:
-      return "#dcdbc4";
+      return "#C2C2A1";
   }
 }
