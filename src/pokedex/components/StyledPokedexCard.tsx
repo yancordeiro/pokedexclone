@@ -23,9 +23,11 @@ export const card = styled.section<{ backgroundColor: string }>`
   border-radius: 1rem;
   background-color: ${(props) => props.backgroundColor};
   color: white;
+  position: relative;
 
   .card__bg-pokeball {
     display: flex;
+    position: absolute;
     background-image: url(${image});
     background-size: contain;
     background-repeat: no-repeat;
