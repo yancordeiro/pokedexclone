@@ -9,29 +9,41 @@ interface CardBoxProps {
 }
 
 export const container = styled.div`
-  display: flex;
-  cursor: pointer;
-  width: 800px;
-  background-color: black;
+  display: grid;
+  width: 100vw;
+  align-content: center;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
 `;
 
-export const card = styled.section<{ backgroundColor: string }>`
+export const card = styled.div<{ backgroundColor: string }>`
+  position: relative;
   display: flex;
-  width: 300px;
   height: 100%;
+  width: 225px;
   padding: 10px;
   border-radius: 1rem;
   background-color: ${(props) => props.backgroundColor};
   color: white;
-  position: relative;
+  z-index: -2;
+  cursor: pointer;
 
-  .card__bg-pokeball {
+  .card__box-wrapper {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .card-img {
     position: absolute;
-    background-image: url(${image});
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 5rem 2rem;
+    display: flex;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+    opacity: 0.2;
+    left: 8rem;
+    bottom: 0rem;
   }
 
   .card__box-left {
@@ -62,10 +74,18 @@ export const card = styled.section<{ backgroundColor: string }>`
   }
 
   .card__box-right {
-    color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
     text-align: center;
     font-weight: bold;
     font-size: larger;
-    justify-content: flex-end;
+
+    span {
+      opacity: 0.3;
+    }
+    img {
+      max-width: 100px;
+      max-height: 100px;
+    }
   }
 `;
