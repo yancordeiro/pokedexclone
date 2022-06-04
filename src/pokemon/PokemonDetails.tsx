@@ -77,6 +77,7 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
                 <td className="table__data-title">{label}</td>
                 <td className="table__data-cont-stats">
                   {pokemonDetails?.stats[i].base_stat}
+
                   <RangeView value={pokemonDetails?.stats[i].base_stat} />
                 </td>
               </tr>

@@ -15,7 +15,7 @@ interface listPokemonsInterface {
 }
 
 export async function listPokemons(): Promise<listPokemonsInterface> {
-  const endpoint = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"; //link da api
+  const endpoint = "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0"; //link da api
   const response = await axios.get<listPokemonsInterface>(endpoint); //chamada da api
   const promisseArr = response.data.results.map(({ name }) =>
     getPokemonDetails(name)

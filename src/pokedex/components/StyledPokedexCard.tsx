@@ -5,12 +5,42 @@ interface CardBoxProps {
 }
 
 export const container = styled.div`
+  margin: 5rem auto;
   display: grid;
-  width: 100vw;
+  max-width: 1440px;
   align-content: center;
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
+  overflow: scroll;
+  /* .scrollbar {
+    margin-left: 30px;
+    float: left;
+    height: 300px;
+    width: 65px;
+    background: #f5f5f5;
+    overflow-y: scroll;
+    margin-bottom: 25px;
+  }
+
+  .force-overflow {
+    min-height: 450px;
+  } */
+
+  @media (max-width: 950px) {
+    margin: 0 auto;
+
+    flex-direction: column;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 600px) {
+    margin: 0 auto;
+    flex-direction: column;
+    position: relative;
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const card = styled.div<{ backgroundColor: string }>`

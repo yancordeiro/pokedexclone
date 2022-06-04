@@ -11,6 +11,7 @@ export const PokemonDetail = styled.div<{ backgroundColor: string }>`
   justify-content: center;
   align-items: center;
   background-color: ${(props) => props.backgroundColor};
+  overflow: scroll;
   h1 {
     color: white;
     text-transform: capitalize;
@@ -19,6 +20,11 @@ export const PokemonDetail = styled.div<{ backgroundColor: string }>`
   img {
     max-width: 20rem;
     max-height: 20rem;
+
+    @media (max-width: 600px) {
+      max-width: 10rem;
+      max-height: 10rem;
+    }
   }
 
   .detail__table {
@@ -61,9 +67,10 @@ export const PokemonDetail = styled.div<{ backgroundColor: string }>`
     font-weight: bold;
   }
   .table__data-cont-stats {
+    gap: 1rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     width: 200px;
     text-transform: capitalize;
     font-weight: bold;
