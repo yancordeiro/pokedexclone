@@ -9,10 +9,7 @@ const AppRoutes: React.FC<routesProps> = () => {
   return (
     <>
       <Routes>
-        <Route
-          path="/pokemon/:name"
-          element={<PokemonDetails pokemon={undefined} />}
-        />
+        <Route path="/pokemon/:name" element={<PokemonDetails />} />
         <Route path="/" element={<Pokedex />} />
       </Routes>
     </>

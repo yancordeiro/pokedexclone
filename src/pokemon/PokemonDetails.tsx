@@ -7,11 +7,9 @@ import { PokemonDetail as pokedet } from "../pokemon/interfaces/pokemonDetail";
 
 import { getColor } from "./services/colorType";
 
-interface PokemonDetailsProps {
-  pokemon: pokedet;
-}
+interface PokemonDetailsProps {}
 
-export const PokemonDetails: React.FC<PokemonDetailsProps> = ({ pokemon }) => {
+export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
   const { name } = useParams();
   const { data } = useQuery(`getPokemonDetails-${name}`, () =>
     getPokemonDetails(name!)
@@ -19,7 +17,7 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = ({ pokemon }) => {
   const pokemonDetails = data;
   const pokemonImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonDetails?.id}.png`;
 
-  // const [primaryType] = pokemonDetails?.types;
+  // const [primaryType] = pokemon?.types ? pokemon.types : ["unknown"];
   // const typeColor = getColor(primaryType.type.name);
 
   const abilities = pokemonDetails?.abilities
@@ -41,12 +39,13 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = ({ pokemon }) => {
     0
   );
 
-  // function testebotao() {
-  //   console.log(typeColor);
-  // }
+  function testebotao() {
+    console.log(pokemonDetails?.types[0].type.name);
+  }
+  const typeColor = pokemonDetails?.types[0].type.name;
 
   return (
-    <PokemonDetail backgroundColor={"grey"}>
+    <PokemonDetail backgroundColor={getColor(typeColor)}>
       <h1>{pokemonDetails?.name}</h1>
       <img src={pokemonImage} alt={pokemonDetails?.name} />
       <table className="detail__table">
