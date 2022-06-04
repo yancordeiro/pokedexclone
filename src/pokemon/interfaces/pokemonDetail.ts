@@ -163,7 +163,7 @@ export interface OfficialArtwork {
 }
 
 export interface Stat {
-  base_stat: number;
+  base_stat: any;
   effort: number;
   stat: Species;
 }

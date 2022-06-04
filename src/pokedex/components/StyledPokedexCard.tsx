@@ -1,8 +1,4 @@
 import styled from "styled-components";
-import { getColor } from "../../pokemon/services/colorType";
-import { PokemonDetail } from "../../pokemon/interfaces/pokemonDetail";
-// import pokebg from "../assets/img.jpg";
-import image from "../assets/img/pokeball.png";
 
 interface CardBoxProps {
   backgroundColor: string;
@@ -26,13 +22,14 @@ export const card = styled.div<{ backgroundColor: string }>`
   border-radius: 1rem;
   background-color: ${(props) => props.backgroundColor};
   color: white;
-  z-index: -2;
   cursor: pointer;
+  user-select: none;
 
   .card__box-wrapper {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    z-index: 1;
   }
 
   .card-img {
@@ -40,7 +37,7 @@ export const card = styled.div<{ backgroundColor: string }>`
     display: flex;
     width: 100px;
     height: 100px;
-    z-index: -1;
+    z-index: 0;
     opacity: 0.2;
     left: 8rem;
     bottom: 0rem;

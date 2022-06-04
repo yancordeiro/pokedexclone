@@ -15,7 +15,6 @@ const PokedexCard: React.FC<PokedexCardProps> = ({ pokemon }) => {
   const navigate = useNavigate();
 
   const [primaryType] = pokemon.types;
-
   const typeColor = getColor(primaryType.type.name);
 
   function handleClick() {
@@ -23,7 +22,7 @@ const PokedexCard: React.FC<PokedexCardProps> = ({ pokemon }) => {
   }
 
   return (
-    <StyledCard backgroundColor={typeColor}>
+    <StyledCard backgroundColor={typeColor} onClick={handleClick}>
       <div className="card-img">
         <img className="bg-pokeball" src={image} alt={pokemon.name} />
       </div>
