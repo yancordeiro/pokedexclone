@@ -3,7 +3,6 @@ import { getPokemonDetails } from "./services/getPokemonDetails";
 import { useQuery } from "react-query";
 import RangeView from "../pokedex/components/rangeview/RangeView";
 import { PokemonDetail } from "./StyledPokemonDetails";
-import { PokemonDetail as pokedet } from "../pokemon/interfaces/pokemonDetail";
 
 import { getColor } from "./services/colorType";
 
@@ -16,9 +15,6 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
   );
   const pokemonDetails = data;
   const pokemonImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonDetails?.id}.png`;
-
-  // const [primaryType] = pokemon?.types ? pokemon.types : ["unknown"];
-  // const typeColor = getColor(primaryType.type.name);
 
   const abilities = pokemonDetails?.abilities
     .map(({ ability }) => {
@@ -39,9 +35,6 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
     0
   );
 
-  function testebotao() {
-    console.log(pokemonDetails?.types[0].type.name);
-  }
   const typeColor = pokemonDetails?.types[0].type.name;
 
   return (
@@ -93,51 +86,7 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
           </tr>
         </tbody>
       </table>
-      {/* <button onClick={testebotao}>teste</button> */}
     </PokemonDetail>
-
-    // <div>
-    //   <Container maxWidth="lg">
-    //     <Box mt={2}>
-    //       <img
-    //         width="50%"
-    //         height="auto"
-    //         src={selectedPokemonDetails?.sprites.front_default}
-    //         alt=""
-    //       />
-    //     </Box>
-    //     <Typography variant="h2">{name}</Typography>
-    //     {selectedPokemonDetails?.types.map((type) => (
-    //       <Typography>
-    //         <p>{type.type.name}</p>{" "}
-    //       </Typography>
-    //     ))}
-
-    //     <Box display="flex" flex-direction="row">
-    //       <Typography>Espécie: </Typography>
-    //       <Typography>{selectedPokemonDetails?.species.name}</Typography>
-    //     </Box>
-
-    //     <Box display="flex" flex-direction="row">
-    //       <Typography>Altura: </Typography>
-    //       <Typography>{selectedPokemonDetails?.height}</Typography>
-    //     </Box>
-
-    //     <Box display="flex" flex-direction="row">
-    //       <Typography>Peso: </Typography>
-    //       <Typography>{selectedPokemonDetails?.weight}</Typography>
-    //     </Box>
-
-    //     <Box display="flex" flex-direction="row">
-    //       <Typography>Habilidades: </Typography>
-    //       <Typography>
-    //         {selectedPokemonDetails?.abilities.map((ability) => (
-    //           <Typography>{ability.ability.name}</Typography>
-    //         ))}
-    //       </Typography>
-    //     </Box>
-    //   </Container>
-    // </div>
   );
 };
 

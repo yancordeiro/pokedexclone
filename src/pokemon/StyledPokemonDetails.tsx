@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-interface CardBoxProps {
-  backgroundColor: string;
-}
+// interface CardBoxProps {
+//   backgroundColor: string;
+// }
 
 export const PokemonDetail = styled.div<{ backgroundColor: string }>`
   height: 100vh;
