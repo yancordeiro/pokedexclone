@@ -28,7 +28,7 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
     .join(", ");
 
   const height = pokemonDetails?.height ? pokemonDetails.height * 10 : "n/a"; // altura em cm
-  const weight = pokemonDetails?.weight ? pokemonDetails.weight * 10 : "n/a"; // peso em kg
+  // const weight = pokemonDetails?.weight ? pokemonDetails.weight * 10 : "n/a"; // peso em kg
   const labels = ["HP", "Attack", "Defense", "Sp. Atk", "Sp. Def", "Speed"];
   const total = pokemonDetails?.stats.reduce(
     (sum, current) => sum + parseInt(current.base_stat),
